@@ -30,6 +30,34 @@ namespace ProjectApi.Controllers
             }
         }
 
+        [HttpGet("account/id/{accountId}")]
+        public IActionResult GetAllData(long accountId)
+        {
+            try
+            {
+                var listofTrn = _dataContext.Transactions.Where(x => x.AccountId == accountId).ToList();
+                return Ok(listofTrn); //200
+            }
+            catch (System.Exception)
+            {
+                return BadRequest(); //400
+            }
+        }
+
+        [HttpGet("account/number/{accountNo}")]
+        public IActionResult GetAllData(string accountNo)
+        {
+            try
+            {
+                var listofData = _dataContext.Transactions.Where(x => x.Account.AccountNo.ToLower() == accountNo.ToLower()).ToList();
+                return Ok(listofData); //200
+            }
+            catch (System.Exception)
+            {
+                return BadRequest(); //400
+            }
+        }
+
         [HttpPost]
         public IActionResult AddTransaction(TransactionDto transactionDto)
         {
@@ -70,7 +98,7 @@ namespace ProjectApi.Controllers
                 catch (Exception ex)
                 {
                     transaction.Rollback();
-                    return BadRequest(ex.Message);                    
+                    return BadRequest(ex.Message);
                 }
             }
         }

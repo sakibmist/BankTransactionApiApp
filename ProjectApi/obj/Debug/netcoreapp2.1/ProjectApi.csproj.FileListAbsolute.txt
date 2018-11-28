@@ -12,3 +12,17 @@ G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.AssemblyI
 G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.RazorTargetAssemblyInfo.cache
 G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.dll
 G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.pdb
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.csprojAssemblyReference.cache
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.csproj.CoreCompileInputs.cache
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.RazorAssemblyInfo.cache
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.RazorAssemblyInfo.cs
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.AssemblyInfoInputs.cache
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.AssemblyInfo.cs
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.dll
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.pdb
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.deps.json
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.runtimeconfig.json
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.runtimeconfig.dev.json
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.dll
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.pdb
+F:\ReactStart\ABaai\BankTransactionApiApp\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.RazorTargetAssemblyInfo.cache
