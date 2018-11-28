@@ -1,0 +1,14 @@
+G:\Mine\BankBasicProject\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.deps.json
+G:\Mine\BankBasicProject\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.runtimeconfig.json
+G:\Mine\BankBasicProject\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.runtimeconfig.dev.json
+G:\Mine\BankBasicProject\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.dll
+G:\Mine\BankBasicProject\ProjectApi\bin\Debug\netcoreapp2.1\ProjectApi.pdb
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.csprojAssemblyReference.cache
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.csproj.CoreCompileInputs.cache
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.RazorAssemblyInfo.cache
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.RazorAssemblyInfo.cs
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.AssemblyInfoInputs.cache
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.AssemblyInfo.cs
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.RazorTargetAssemblyInfo.cache
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.dll
+G:\Mine\BankBasicProject\ProjectApi\obj\Debug\netcoreapp2.1\ProjectApi.pdb
