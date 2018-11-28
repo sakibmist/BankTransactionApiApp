@@ -43,20 +43,20 @@ namespace ProjectApi.Controllers
             }
         }
 
-        // [HttpGet("check/{accountNo}")]
-        // public IActionResult CheckIsAccountNoExists(string accountNo)
-        // {
-        //     try
-        //     {
-        //         var isExist = _dataContext.Accounts.Any(x => x.AccountNo.ToLower() == accountNo.ToLower());
-        //         return Ok(new { IsExist = isExist }); //200
-        //     }
-        //     catch (System.Exception)
-        //     {
+        [HttpGet("check/{accountNo}")]
+        public IActionResult CheckIsAccountNoExists(string accountNo)
+        {
+            try
+            {
+                var isExist = _dataContext.Accounts.Any(x => x.AccountNo.ToLower() == accountNo.ToLower());
+                return Ok(new { IsExist = isExist }); //200
+            }
+            catch (System.Exception)
+            {
 
-        //         return BadRequest(); //400
-        //     }
-        // }
+                return BadRequest(); //400
+            }
+        }
 
         [HttpPost]
         public IActionResult AddData(Account account)
