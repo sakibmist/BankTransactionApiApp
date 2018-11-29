@@ -10,5 +10,7 @@ namespace ProjectApi.Models
         public decimal Amount { get; set; }
         public DateTime TxnDateTime { get; set; }
         public string AccountNo { get; set; }
+        public long AccountId { get; set; }
+
     }
 }

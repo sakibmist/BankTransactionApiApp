@@ -21,7 +21,16 @@ namespace ProjectApi.Controllers
         {
             try
             {
-                var transactionsData = _dataContext.Transactions.ToList();
+                var transactionsData = _dataContext.Transactions.Select(s => new TransactionReturnDto
+                {
+                    Id = s.Id,
+                        AccountNo = s.Account.AccountNo,
+                        Amount = s.Amount,
+                        CurrentBalance = s.CurrentBalance,
+                        TransactionMode = s.TransactionMode,
+                        TxnDateTime = s.TxnDateTime,
+                        AccountId = s.AccountId
+                }).OrderByDescending(x => x.Id).ToList();
                 return Ok(transactionsData); //200
             }
             catch (System.Exception)
@@ -31,11 +40,22 @@ namespace ProjectApi.Controllers
         }
 
         [HttpGet("account/id/{accountId}")]
-        public IActionResult GetAllData(long accountId)
+        public IActionResult GetAllDataById(long accountId)
         {
             try
             {
-                var listofTrn = _dataContext.Transactions.Where(x => x.AccountId == accountId).ToList();
+                var listofTrn = _dataContext.Transactions
+                    .Where(x => x.Account.Id == accountId)
+                    .Select(s => new TransactionReturnDto
+                    {
+                        Id = s.Id,
+                            AccountNo = s.Account.AccountNo,
+                            Amount = s.Amount,
+                            CurrentBalance = s.CurrentBalance,
+                            TransactionMode = s.TransactionMode,
+                            TxnDateTime = s.TxnDateTime,
+                            AccountId = s.AccountId
+                    }).OrderByDescending(x => x.Id).ToList();
                 return Ok(listofTrn); //200
             }
             catch (System.Exception)
@@ -53,12 +73,13 @@ namespace ProjectApi.Controllers
                     .Where(x => x.Account.AccountNo.ToLower() == accountNo.ToLower())
                     .Select(s => new TransactionReturnDto
                     {
-                        AccountNo = s.Account.AccountNo,
-                        Amount = s.Amount,
-                        CurrentBalance = s.CurrentBalance,
-                        TransactionMode = s.TransactionMode,
                         Id = s.Id,
-                        TxnDateTime = s.TxnDateTime
+                            AccountNo = s.Account.AccountNo,
+                            Amount = s.Amount,
+                            CurrentBalance = s.CurrentBalance,
+                            TransactionMode = s.TransactionMode,
+                            TxnDateTime = s.TxnDateTime,
+                            AccountId = s.AccountId
                     }).ToList();
                 return Ok(listofData); //200
             }
@@ -83,10 +104,12 @@ namespace ProjectApi.Controllers
                             if (transactionDto.Amount <= 0) return BadRequest("Invalid amount");
                             if (account.Balance < transactionDto.Amount) return BadRequest("Insufficient Balance");
                             account.Balance -= transactionDto.Amount;
+                            account.UpdatedAt = DateTime.Now;
                             break;
                         case "cr":
                             if (transactionDto.Amount <= 0) return BadRequest("Invalid amount");
                             account.Balance += transactionDto.Amount;
+                            account.UpdatedAt = DateTime.Now;
                             break;
                     }
                     _dataContext.Accounts.Update(account);
