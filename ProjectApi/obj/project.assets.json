@@ -8504,11 +8504,12 @@
       ]
     },
     "System.Diagnostics.TraceSource/4.3.0": {
-      "sha512": "VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
+      "sha512": "PXWAEqWXamctxvdYSlHY+HG0e++cVkg0FwiqtiOZ4Ziy31GD9uab2QAgkuDKUARcCdVq3DfruvdMnPfalEJbNw==",
       "type": "package",
       "path": "system.diagnostics.tracesource/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12132,30 +12133,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SA SamaD\\.nuget\\packages\\": {},
+    "C:\\Users\\samad\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ReactStart\\ABaai\\BankTransactionApiApp\\ProjectApi\\ProjectApi.csproj",
+      "projectUniqueName": "g:\\Mine\\BankBasicProject\\ProjectApi\\ProjectApi.csproj",
       "projectName": "ProjectApi",
-      "projectPath": "F:\\ReactStart\\ABaai\\BankTransactionApiApp\\ProjectApi\\ProjectApi.csproj",
-      "packagesPath": "C:\\Users\\SA SamaD\\.nuget\\packages\\",
-      "outputPath": "F:\\ReactStart\\ABaai\\BankTransactionApiApp\\ProjectApi\\obj\\",
+      "projectPath": "g:\\Mine\\BankBasicProject\\ProjectApi\\ProjectApi.csproj",
+      "packagesPath": "C:\\Users\\samad\\.nuget\\packages\\",
+      "outputPath": "g:\\Mine\\BankBasicProject\\ProjectApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\SA SamaD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\samad\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

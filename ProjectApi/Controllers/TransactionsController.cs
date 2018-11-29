@@ -49,7 +49,17 @@ namespace ProjectApi.Controllers
         {
             try
             {
-                var listofData = _dataContext.Transactions.Where(x => x.Account.AccountNo.ToLower() == accountNo.ToLower()).ToList();
+                var listofData = _dataContext.Transactions
+                    .Where(x => x.Account.AccountNo.ToLower() == accountNo.ToLower())
+                    .Select(s => new TransactionReturnDto
+                    {
+                        AccountNo = s.Account.AccountNo,
+                        Amount = s.Amount,
+                        CurrentBalance = s.CurrentBalance,
+                        TransactionMode = s.TransactionMode,
+                        Id = s.Id,
+                        TxnDateTime = s.TxnDateTime
+                    }).ToList();
                 return Ok(listofData); //200
             }
             catch (System.Exception)
