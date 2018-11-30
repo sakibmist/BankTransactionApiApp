@@ -30,7 +30,6 @@ namespace ProjectApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             services.AddDbContext<DataContext>(options => options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DataContext")));
             services.AddCors(options =>

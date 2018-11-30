@@ -49,11 +49,31 @@ namespace ProjectApi.Controllers
             try
             {
                 var isExist = _dataContext.Accounts.Any(x => x.AccountNo.ToLower() == accountNo.ToLower());
-                return Ok(new { IsExist = isExist }); //200
+                return Ok(new { IsExist = isExist }); //200 core er property kore neoya hoyese.
             }
             catch (System.Exception)
             {
 
+                return BadRequest(); //400
+            }
+        }
+
+        [HttpGet("check/balance/{accountId}/{amount}")]
+        public IActionResult CheckAmount(long accountId, decimal amount)
+        {
+            try
+            {
+                var isInsufficient = true;
+                var account = _dataContext.Accounts.Find(accountId);
+                if (account == null) return NotFound("Account is not found");
+                if (account.Balance < amount) isInsufficient = true;
+                else isInsufficient = false;
+
+                return Ok(new { IsInsufficient = isInsufficient });
+                // var isInsufficient = _dataContext.Accounts.Any(x=> x.Id == accountId && x.Balance < amount);
+            }
+            catch (System.Exception)
+            {
                 return BadRequest(); //400
             }
         }

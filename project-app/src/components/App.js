@@ -5,6 +5,9 @@ import {NavLink, Route} from 'react-router-dom';
 import CreateAccountPage from './CreateAccountPage';
 import AccountOperationPage from './AccountOperationPage';
 import AccountIndexPage from './AccountIndexPage';
+import DetailAccountPage from './DetailAccountPage';
+import AllTransactionsPage from './AllTransactionsPage';
+
 
 
 
@@ -64,7 +67,10 @@ class App extends Component {
                   </div>
                 </li>
                 <li className="nav-item navSpace">
-                <NavLink to="/accountIndexPage" className="nav-link">Show-All</NavLink>
+                <NavLink to="/accountIndexPage" className="nav-link">ShowAll A/C</NavLink>
+                </li>
+                <li className="nav-item navSpace">
+                <NavLink to="/allTransactionsPage" className="nav-link">ShowAll Transactions</NavLink>
                 </li>
               </ul>
             </div>
@@ -73,6 +79,9 @@ class App extends Component {
           <Route path="/createAccountPage" component={CreateAccountPage} /> 
           <Route path="/accountOperationPage" component={AccountOperationPage} />  
           <Route path="/accountIndexPage" component={AccountIndexPage} />  
+          <Route path="/detailAccountPage/information/:id" component={DetailAccountPage}/>
+          <Route path="/allTransactionsPage" component={AllTransactionsPage}/>
+
 
           </div> 
           <div className="card-footer border">

@@ -21,20 +21,20 @@ class AccountIndexPage extends React.Component {
         }
     };
 
-    handleDelete = async (id) => {
-        if (window.confirm("Are you sure to delete?")) {
-
-            const response = await http.delete(`${this.baseUrl}/${id}`);
-            if (response.status === 200) {
-                const { accounts } = this.state;
-                const index = accounts.findIndex(account => account.id === id);
-                if (index > -1) {
-                    accounts.splice(index, 1);
-                    this.setState({ accounts });
-                }
+    handleDelete= async(id)=>{
+        if(window.confirm('Are you sure to delete!')){
+        const response =await http.delete(`${this.baseUrl}/${id}`);
+        if(response.status === 200){
+            const {accounts}= this.state;
+            const index =accounts.findIndex(account=>account.id === id);
+            if(index>-1){
+                accounts.splice(index,1);
+                this.setState({accounts});
             }
+            
         }
-    };
+    }
+    }
 
     render() {
         const { accounts } = this.state;
@@ -55,16 +55,16 @@ class AccountIndexPage extends React.Component {
                         <tbody>
                             {accounts.map((account, index) => (
                                 <tr key={index}>
-                                    <td>{account.FirstName}</td>
-                                    <td>{account.LastName}</td>
-                                    <td>{account.AccountNo}</td>
-                                    <td>{account.Balance}</td> 
-                                    <td>{account.UpdatedAt}</td> 
-
-                                    <td width="210"> 
-                                        <button className="btn btn-sm btn-danger ml-2" onClick={() => this.handleDelete(account.id)}>Delete</button>
-                                        <NavLink to="" className="btn btn-sm btn-info ml-2">Details</NavLink>
-                                    </td>
+                                    <td>{account.firstName}</td>
+                                    <td>{account.lastName}</td>
+                                    <td>{account.accountNo}</td>
+                                    <td>{account.balance}</td> 
+                                    <td>{account.updatedAt}</td>  
+                                    <td>
+                                    <NavLink to={`/account/edit/${account.id}`} className="btn btn-sm btn-warning ml-2">Edit</NavLink>
+                                    <button className="btn btn-sm btn-danger ml-2" onClick={()=>this.handleDelete(account.id)}>Delete</button>
+                                    <NavLink to={`/detailAccountPage/information/${account.id}`} className="btn btn-sm btn-info ml-2">Details</NavLink> 
+                                </td>
                                 </tr>
                             ))}
                         </tbody>

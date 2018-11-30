@@ -89,6 +89,7 @@ namespace ProjectApi.Controllers
             }
         }
 
+
         [HttpPost]
         public IActionResult AddTransaction(TransactionDto transactionDto)
         {
@@ -126,7 +127,7 @@ namespace ProjectApi.Controllers
                     _dataContext.SaveChanges();
 
                     transaction.Commit();
-                    return Ok();
+                    return Ok(); //200
                 }
                 catch (Exception ex)
                 {
