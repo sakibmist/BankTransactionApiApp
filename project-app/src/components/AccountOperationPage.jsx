@@ -31,16 +31,9 @@ class AccountOperationPage extends React.Component {
   baseUrlTran = "http://localhost:5000/api/transactions";
 
   handleInsufficiectAmount = async () => {
-    const { amount } = this.state;
+    const { accountId, amount } = this.state;
     const response = await http.get(
-      `${this.baseUrlTran}/ccheck/amount/${amount}`
-    );
-  };
-
-  handleInsufficiectAmount = async () => {
-    const { accountId, account } = this.state;
-    const response = await http.get(
-      `${this.baseUrl}/check/balance/${accountId}/${accountNo}`
+      `${this.baseUrl}/check/balance/${accountId}/${amount}`
     );
     if (response.status === 200) {
       const { isInsufficient: isInsufficientBalance } = response.data;
@@ -62,7 +55,13 @@ class AccountOperationPage extends React.Component {
     }
   };
   render() {
-    const { listofaccount, accountId, amount, transactionMode } = this.state;
+    const {
+      listofaccount,
+      accountId,
+      amount,
+      transactionMode,
+      isInsufficientBalance
+    } = this.state;
     return (
       <div className="card-body border minHeight">
         <div className="offset-2 col-sm-8">
@@ -79,7 +78,7 @@ class AccountOperationPage extends React.Component {
                   value={accountId}
                   onChange={this.handleChange}
                 >
-                  <option value="">--Select One--</option>
+                  <option>--Select--</option>
                   {listofaccount.map((account, index) => (
                     <option key={index} value={account.id}>
                       {account.accountNo}
@@ -122,14 +121,20 @@ class AccountOperationPage extends React.Component {
                   onChange={this.handleChange}
                 />
                 {isInsufficientBalance && (
-                  <span className="text-danger">Insufficient Balance</span>
+                  <span className="text-danger">
+                    Insufficient Balance!
+                  </span>
                 )}
               </div>
             </div>
             <div className="form-group row">
               <div className="col-sm-4" />
               <div className="col-sm-8">
-                <button className="btn  btn-primary" type="submit" disabled={isInsufficientBalance}>
+                <button
+                  className="btn  btn-primary"
+                  type="submit"
+                  disabled={isInsufficientBalance}
+                >
                   Submit
                 </button>
               </div>
