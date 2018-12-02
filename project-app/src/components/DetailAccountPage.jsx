@@ -1,6 +1,7 @@
 import React from "react";
 import http from "axios";
 import { NavLink } from "react-router-dom";
+import moment from 'moment';
 
 class DetailAccountPage extends React.Component {
   state = {
@@ -81,11 +82,11 @@ class DetailAccountPage extends React.Component {
             </tr>
             <tr>
               <td>Created At</td>
-              <td>{account.createdAt}</td>
+              <td>{moment(account.createdAt).format("DD-MM-YYYY hh:mm:ss a")}</td>
             </tr>
             <tr>
               <td>Updated At</td>
-              <td>{account.updatedAt}</td>
+              <td>{moment(account.updatedAt).format("DD-MM-YYYY hh:mm:ss a")}</td>
             </tr>
           </tbody>
         </table>
@@ -107,7 +108,7 @@ class DetailAccountPage extends React.Component {
                   <td>{transaction.amount}</td>
                     <td>{transaction.transactionMode}</td>
                     <td>{transaction.currentBalance}</td> 
-                    <td>{transaction.txnDateTime}</td>
+                    <td>{moment(transaction.txnDateTime).format("DD-MM-YYYY hh:mm:ss a")}</td>
                   </tr>
                 ))
                 }

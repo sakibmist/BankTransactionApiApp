@@ -118,7 +118,7 @@ namespace ProjectApi.Controllers
         [HttpPost]
         public IActionResult AddTransaction(TransactionDto transactionDto)
         {
-            using(var transaction = _dataContext.Database.BeginTransaction()) // 
+            using(var transaction = _dataContext.Database.BeginTransaction())  
             {
                 try
                 {
@@ -137,6 +137,8 @@ namespace ProjectApi.Controllers
                             account.Balance += transactionDto.Amount;
                             account.UpdatedAt = DateTime.Now;
                             break;
+
+                        default: return BadRequest();
                     }
                     _dataContext.Accounts.Update(account);
                     _dataContext.SaveChanges();

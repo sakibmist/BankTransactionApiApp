@@ -1,6 +1,7 @@
 import React from 'react';
 import http from 'axios';
 import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 
 class AccountIndexPage extends React.Component {
     state = {
@@ -48,7 +49,7 @@ class AccountIndexPage extends React.Component {
                                 <th>LastName</th>
                                 <th>A/C No.</th>
                                 <th>Balance</th> 
-                                <th>Last Tran. Date</th>  
+                                <th> Transaction Date</th>  
                                 <th width="210">Action</th>
                             </tr>
                         </thead>
@@ -59,7 +60,7 @@ class AccountIndexPage extends React.Component {
                                     <td>{account.lastName}</td>
                                     <td>{account.accountNo}</td>
                                     <td>{account.balance}</td> 
-                                    <td>{account.updatedAt}</td>  
+                                    <td>{moment(account.updatedAt).format("DD-MM-YYYY hh:mm:ss a")}</td>  
                                     <td>
                                     <NavLink to={`/account/edit/${account.id}`} className="btn btn-sm btn-warning ml-2">Edit</NavLink>
                                     <button className="btn btn-sm btn-danger ml-2" onClick={()=>this.handleDelete(account.id)}>Delete</button>

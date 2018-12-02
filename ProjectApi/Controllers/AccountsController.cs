@@ -59,6 +59,8 @@ namespace ProjectApi.Controllers
             }
         }
 
+        // for making insufficient validation
+
         [HttpGet("check/balance/{accountId}/{amount}")]
         public IActionResult CheckAmount(long accountId, decimal amount)
         {
@@ -78,7 +80,7 @@ namespace ProjectApi.Controllers
                 return BadRequest(); //400
             }
         }
-
+            // eksate duita table e data send kora hoyese
         [HttpPost]
         public IActionResult AddData(Account account)
         {

@@ -28,6 +28,11 @@ class AccountOperationPage extends React.Component {
     //console.log(this.state);
   };
 
+  handleChangeAmount = (event) => {
+    const { value } = event.target;
+    this.setState({ amount: value, isInsufficientBalance: undefined });
+  };
+
   baseUrlTran = "http://localhost:5000/api/transactions";
 
   handleInsufficiectAmount = async () => {
@@ -118,7 +123,7 @@ class AccountOperationPage extends React.Component {
                   value={amount}
                   placeholder=""
                   onBlur={this.handleInsufficiectAmount}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeAmount}
                 />
                 {isInsufficientBalance && (
                   <span className="text-danger">

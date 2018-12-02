@@ -1,6 +1,6 @@
 import React from "react";
 import http from "axios";
-
+import moment from 'moment';
 class AllTransactionsPage extends React.Component {
   state = {
     listofTransactions: []
@@ -38,7 +38,7 @@ class AllTransactionsPage extends React.Component {
                 <td>{transaction.transactionMode}</td>
                 <td>{transaction.amount}</td>
                 <td>{transaction.currentBalance}</td>
-                <td>{transaction.txnDateTime}</td> 
+                <td>{moment(transaction.txnDateTime).format("DD-MM-YYYY hh:mm:ss a")}</td> 
               </tr>
             ))}
           </tbody>
