@@ -39,6 +39,31 @@ namespace ProjectApi.Controllers
             }
         }
 
+        // Get all transactions of same accountId
+
+        [HttpGet("accountid/{accountId}")]
+        public IActionResult GetAllTransDataofOneAccountById( long accountId)
+        {
+            try
+            {
+                var listofTrn = _dataContext.Transactions
+                    .Where(x => x.AccountId == accountId)
+                    .Select(y => new TransactionReturnDto
+                    {
+                            AccountId= y.AccountId, 
+                            Amount = y.Amount,
+                            CurrentBalance = y.CurrentBalance,
+                            TransactionMode = y.TransactionMode,
+                            TxnDateTime = y.TxnDateTime
+                    }).OrderBy(x => x.TxnDateTime).ToList();
+                return Ok(listofTrn); //200
+            }
+            catch (System.Exception)
+            {
+                return BadRequest(); //400
+            }
+        }
+
         [HttpGet("account/id/{accountId}")]
         public IActionResult GetAllDataById(long accountId)
         {

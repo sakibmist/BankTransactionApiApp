@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ProjectApi.Models;
@@ -81,16 +82,34 @@ namespace ProjectApi.Controllers
         [HttpPost]
         public IActionResult AddData(Account account)
         {
-            try
+            using(var transaction = _dataContext.Database.BeginTransaction())
             {
-                if (account == null) return NotFound(); //404
-                _dataContext.Accounts.Add(account);
-                _dataContext.SaveChanges();
-                return CreatedAtRoute("GetData", new { id = account.Id }, account); //201
-            }
-            catch (System.Exception)
-            {
-                return BadRequest();
+                try
+                {
+                    if (account == null) return NotFound(); //404
+                    _dataContext.Accounts.Add(account);
+                    _dataContext.SaveChanges();
+
+                    var depositTxn = new Transaction
+                    {
+                        AccountId = account.Id,
+                        Amount = account.Balance,
+                        CurrentBalance = account.Balance,
+                        TransactionMode = "dr",
+                        TxnDateTime = DateTime.Now
+                    };
+                    _dataContext.Transactions.Add(depositTxn);
+                    _dataContext.SaveChanges();
+                    
+                    transaction.Commit();
+
+                    return CreatedAtRoute("GetData", new { id = account.Id }, account); //201
+                }
+                catch (System.Exception)
+                {
+                    transaction.Rollback();
+                    return BadRequest();
+                }
             }
         }
 
