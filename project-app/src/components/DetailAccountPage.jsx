@@ -92,7 +92,7 @@ class DetailAccountPage extends React.Component {
         </table>
         <div className="card border">
           <div className="card-header">
-            <b>All transactions of account no: <h6>{account.accountNo}</h6></b>
+            <label>All transactions of account no: <h6 className="designValue">{account.accountNo}</h6></label>
           </div>
           <div className="card-body border">
             <table className="table table-bordered">

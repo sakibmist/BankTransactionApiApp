@@ -21,6 +21,17 @@ class AllTransactionsPage extends React.Component {
     const { listofTransactions } = this.state;
     return (
       <div className="offset-1 col-sm-10">
+        {/* <div className="card d-flex justify-content-between">
+          <div className="col-sm">
+            <input type="text" name="searchValue" className="form-control" />
+          </div>
+          <div className="col-sm">
+            <input type="date" name="searchValue" className="form-control" />
+          </div>
+          <div className="col-sm">
+            <input type="date" name="searchValue" className="form-control" />
+          </div>
+        </div> */}
         <table className="table table-bordered">
           <thead>
             <tr>
@@ -28,17 +39,17 @@ class AllTransactionsPage extends React.Component {
               <th>Transaction Mode</th>
               <th>Amount</th>
               <th>Current Balance</th>
-              <th>Transaction Date</th> 
+              <th>Transaction Date</th>
             </tr>
           </thead>
           <tbody>
-            {listofTransactions.map((transaction,index) => (
+            {listofTransactions.map((transaction, index) => (
               <tr key={index}>
                 <td>{transaction.accountNo}</td>
                 <td>{transaction.transactionMode}</td>
                 <td>{transaction.amount}</td>
                 <td>{transaction.currentBalance}</td>
-                <td>{moment(transaction.txnDateTime).format("DD-MM-YYYY hh:mm:ss a")}</td> 
+                <td>{moment(transaction.txnDateTime).format("DD-MM-YYYY hh:mm:ss a")}</td>
               </tr>
             ))}
           </tbody>
